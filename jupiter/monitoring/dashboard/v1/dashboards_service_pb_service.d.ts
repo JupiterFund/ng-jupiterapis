@@ -2,21 +2,20 @@
 // file: jupiter/monitoring/dashboard/v1/dashboards_service.proto
 
 import * as jupiter_monitoring_dashboard_v1_dashboards_service_pb from "../../../../jupiter/monitoring/dashboard/v1/dashboards_service_pb";
-import * as google_protobuf_empty_pb from "google-protobuf/google/protobuf/empty_pb";
 import {grpc} from "@improbable-eng/grpc-web";
 
-type DashboardsServiceGetFactorStream = {
+type DashboardsServiceGetByteStream = {
   readonly methodName: string;
   readonly service: typeof DashboardsService;
   readonly requestStream: false;
   readonly responseStream: true;
-  readonly requestType: typeof google_protobuf_empty_pb.Empty;
-  readonly responseType: typeof jupiter_monitoring_dashboard_v1_dashboards_service_pb.GetFactorStreamResponse;
+  readonly requestType: typeof jupiter_monitoring_dashboard_v1_dashboards_service_pb.GetByteStreamRequest;
+  readonly responseType: typeof jupiter_monitoring_dashboard_v1_dashboards_service_pb.GetByteStreamResponse;
 };
 
 export class DashboardsService {
   static readonly serviceName: string;
-  static readonly GetFactorStream: DashboardsServiceGetFactorStream;
+  static readonly GetByteStream: DashboardsServiceGetByteStream;
 }
 
 export type ServiceError = { message: string, code: number; metadata: grpc.Metadata }
@@ -51,6 +50,6 @@ export class DashboardsServiceClient {
   readonly serviceHost: string;
 
   constructor(serviceHost: string, options?: grpc.RpcOptions);
-  getFactorStream(requestMessage: google_protobuf_empty_pb.Empty, metadata?: grpc.Metadata): ResponseStream<jupiter_monitoring_dashboard_v1_dashboards_service_pb.GetFactorStreamResponse>;
+  getByteStream(requestMessage: jupiter_monitoring_dashboard_v1_dashboards_service_pb.GetByteStreamRequest, metadata?: grpc.Metadata): ResponseStream<jupiter_monitoring_dashboard_v1_dashboards_service_pb.GetByteStreamResponse>;
 }
 
